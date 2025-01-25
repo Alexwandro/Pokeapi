@@ -1,0 +1,51 @@
+body{
+	background: #f0f0f0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* Stile generale per il contenitore principale */
+#container {
+	font-family: 'Arial', sans-serif;
+	margin: 20px;
+	padding: 10px;
+}
+
+/* Stile per il titolo */
+#container h1 {
+	color: #4CAF50; /* Verde per il titolo */
+	text-align: center;
+}
+
+/* Stile per l'input di ricerca */
+#container input[type="text"] {
+	width: 90%; /* Larghezza completa */
+	padding: 10px; /* Padding interno */
+	margin: 10px 0; /* Margine sopra e sotto */
+	border: 2px solid #4CAF50; /* Bordo verde */
+	border-radius: 5px; /* Angoli arrotondati */
+	font-size: 16px; /* Dimensione del font */
+}
+
+/* Stile per la lista dei Pokemon */
+#container .elemento {
+	background-color: #f9f9f9; /* Sfondo chiaro per gli elementi della lista */
+	border: 1px solid #ddd; /* Bordo grigio chiaro */
+	border-radius: 5px; /* Angoli arrotondati */
+	padding: 10px; /* Padding interno */
+	margin: 5px 0; /* Margine sopra e sotto */
+	cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+	transition: background-color 0.3s; /* Transizione per l'effetto hover */
+}
+
+/* Effetto hover per gli elementi della lista */
+#container .elemento:hover {
+	background-color: #e0f7fa; /* Sfondo blu chiaro al passaggio del mouse */
+}
+
+/* Stile per il messaggio di caricamento e nessun Pokemon trovato */
+#container .status-message {
+	text-align: center; /* Allinea il testo al centro */
+	font-size: 18px; /* Dimensione del font */
+	color: #555; /* Colore grigio scuro */
+}

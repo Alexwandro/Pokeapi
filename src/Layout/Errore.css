@@ -1,0 +1,10 @@
+#container{
+    display: block;
+    text-align: center;
+}
+img{
+    width: 30%;
+}
+div{
+    font-size: 32px;
+}
