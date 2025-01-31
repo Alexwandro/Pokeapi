@@ -38,9 +38,9 @@ body {
 	padding: 0 15px;
 }
 
-#pulsanti button {
+#pulsanti button{
 	font-size: 40px;
-	background-color: #b350af;
+	background-color: #4CAF50;
 	color: white;
 	border: none;
 	border-radius: 25px;
@@ -53,7 +53,7 @@ body {
 }
 
 #pulsanti button:hover {
-	background-color: #8000c0;
+	background-color: #3a853c;
 }
 
 @media (max-width: 480px) {
@@ -98,7 +98,55 @@ body {
 		max-width: 150px;
 	}
 }
-#info, #abilita, #statistiche {
+
+.evolution-name {
+    color: #333; /* Colore del testo */
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer; /* Cambia il cursore a "mano" quando si passa sopra */
+    transition: color 0.2s ease; /* Effetto di transizione sul colore */
+}
+
+.evolution-name:hover {
+    color: #007BFF; /* Cambia colore quando si passa sopra */
+    text-decoration: underline; /* Sottolinea il testo quando si passa sopra */
+}
+
+.current-pokemon {
+    color: #4CAF50; /* Colore speciale per il Pokémon corrente */
+    font-style: italic; /* Aggiunge uno stile speciale */
+    cursor: default; /* Non cliccabile (opzionale per il Pokémon corrente) */
+}
+.evolution-arrow {
+    margin: 0 5px; /* Spazio tra le frecce e i nomi */
+    color: #666; /* Colore della freccia */
+}
+
+#Verso input[type="button"] {
+	padding: 10px 20px; /* Spaziatura interna */
+	font-size: 16px; /* Dimensione del testo */
+	font-weight: bold; /* Testo in grassetto */
+	color: #ffffff; /* Colore del testo */
+	background-color: #007bff; /* Colore del pulsante */
+	border: none; /* Rimuove i bordi */
+	border-radius: 8px; /* Angoli arrotondati */
+	cursor: pointer; /* Cambia il cursore al passaggio */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
+	transition: background-color 0.3s, transform 0.2s; /* Animazioni */
+}
+	
+/* Stile per hover e focus */
+#Verso input[type="button"]:hover {
+	background-color: #0056b3; /* Cambia il colore al passaggio */
+	transform: scale(1.05); /* Leggero ingrandimento */
+}
+	
+#Verso input[type="button"]:active {
+	background-color: #003f7f; /* Colore più scuro al click */
+	transform: scale(0.95); /* Riduzione leggera al click */
+}
+
+#info, #abilita, #statistiche, #evoluzione {
 	background-color: (171, 183, 183);
 	padding: 20px;
 	margin: 10px;
