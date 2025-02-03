@@ -49,7 +49,10 @@ const Home = () => {
 			</div>
 		))
 	}
-
+	let Random=()=>{
+		const randomId = Math.floor(Math.random() * 898) + 1
+		navigate(`/Dettagli/${randomId}`)
+	}
 	return (
 		<div id='container'>
 			<h1>Pokemon List</h1>
@@ -60,6 +63,7 @@ const Home = () => {
 				value={searchTerm}
 				onChange={handleSearch}
 			/>
+			<input type='button' value={"Random Pokemon"} onClick={()=>Random()}></input>
 			{/* Visualizza la lista dei Pokemon filtrati */}
 			{Visualizza()}
 		</div>

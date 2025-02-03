@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import '../Layout/Dettagli.css'
-import Swal from 'sweetalert2'
-
-
-
 
 const Dettagli = () => {
 	// Per utilizzare sweetalert2
@@ -67,6 +63,7 @@ const Dettagli = () => {
 	if (isLoading) {
 		return <div className='loader'></div>
 	}
+	// Funzione per l'audio
 	const Verso = () => {
 		const audio = new Audio(pokemon.cries.latest);
 		audio.play()
