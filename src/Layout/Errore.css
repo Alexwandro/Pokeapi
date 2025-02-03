@@ -1,6 +1,29 @@
 #container{
     display: block;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+}
+
+#conatiner input[type="button"] {
+	padding: 10px 20px; /* Spaziatura interna */
+	font-size: 16px; /* Dimensione del testo */
+	font-weight: bold; /* Testo in grassetto */
+	color: #ffffff; /* Colore del testo */
+	background-color: #007bff; /* Colore del pulsante */
+	border: none; /* Rimuove i bordi */
+	border-radius: 8px; /* Angoli arrotondati */
+	cursor: pointer; /* Cambia il cursore al passaggio */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
+	transition: background-color 0.3s, transform 0.2s; /* Animazioni */
+}
+#conatiner input[type="button"]:hover {
+	background-color: #0056b3; /* Cambia il colore al passaggio */
+	transform: scale(1.05); /* Leggero ingrandimento */
+}
+#container input[type="button"]:active {
+	background-color: #003f7f; /* Colore più scuro al click */
+	transform: scale(0.95); /* Riduzione leggera al click */
 }
 img{
     width: 30%;
