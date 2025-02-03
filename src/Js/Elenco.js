@@ -63,7 +63,7 @@ const Home = () => {
 				value={searchTerm}
 				onChange={handleSearch}
 			/>
-			<input type='button' value={"Random Pokemon"} onClick={()=>Random()}></input>
+			<input type='button' value={"Random Pokemon"} onClick={Random}></input>
 			{/* Visualizza la lista dei Pokemon filtrati */}
 			{Visualizza()}
 		</div>
