@@ -17,44 +17,44 @@ const Dettagli = () => {
 	const [evolutionChain, setEvolutionChain] = useState(null)
 	//Fetch del pokemon richiesto
 	useEffect(() => {
-	setIsLoading(true)
-	
-	fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-		.then((response) => {
-			return response.json()
-		})
-		.then((infoJson) => {
-			setPokemon(infoJson)
-			// Fetch delle informazioni sulla specie del pokemon
-			return fetch(infoJson.species.url)
-		})
-		.then((response) =>{
-			return response.json()
-		})
-		.then((speciesJson) => {
-			// Fetch della linea evolutiva del pokemon
-			return fetch(speciesJson.evolution_chain.url)
-		})
-		.then((response) => {
-			return response.json()
-		})
-		.then((evolutionData) => {
-			const getEvolutionNames = (chain) => {
-				return [chain.species.name, ...chain.evolves_to.flatMap(getEvolutionNames)];
-			};		
-			// Chiama la funzione passando la radice della catena evolutiva
-			// e salva il risultato nello state
-			setEvolutionChain(getEvolutionNames(evolutionData.chain))
-		})
-		.catch((error) => {
-			// Redirect alla pagina di errore in caso di problemi
-			indietro('/errore')
-			console.error('Errore:', error);
-			indietro('/errore', { state: { message: error.message } });
-		})
-		.finally(() => {
-			setIsLoading(false)
-		})
+		setIsLoading(true)
+		
+		fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+			.then((response) => {
+				return response.json()
+			})
+			.then((infoJson) => {
+				setPokemon(infoJson)
+				// Fetch delle informazioni sulla specie del pokemon
+				return fetch(infoJson.species.url)
+			})
+			.then((response) =>{
+				return response.json()
+			})
+			.then((speciesJson) => {
+				// Fetch della linea evolutiva del pokemon
+				return fetch(speciesJson.evolution_chain.url)
+			})
+			.then((response) => {
+				return response.json()
+			})
+			.then((evolutionData) => {
+				const getEvolutionNames = (chain) => {
+					return [chain.species.name, ...chain.evolves_to.flatMap(getEvolutionNames)];
+				};		
+				// Chiama la funzione passando la radice della catena evolutiva
+				// e salva il risultato nello state
+				setEvolutionChain(getEvolutionNames(evolutionData.chain))
+			})
+			.catch((error) => {
+				// Redirect alla pagina di errore in caso di problemi
+				indietro('/errore')
+				console.error('Errore:', error);
+				indietro('/errore', { state: { message: error.message } });
+			})
+			.finally(() => {
+				setIsLoading(false)
+			})
 	}, [name, indietro])
 
 	//Fetch della linea evolutiva del pokemon
@@ -131,7 +131,7 @@ const Dettagli = () => {
 				<h2>Abilità:</h2>
 				{pokemon.abilities.map((ability, index) => (
 					<div key={index}>
-						{ability.ability.name} 
+						{ability.ability.name}
 						{ability.is_hidden && " (Abilità Nascosta)"}
 					</div>
 				))}
