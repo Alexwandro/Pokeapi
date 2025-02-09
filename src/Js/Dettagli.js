@@ -103,7 +103,7 @@ const Dettagli = () => {
 				<div>Height: {pokemon.height / 10} (m)</div>
 				<div>Weight: {pokemon.weight / 10} (kg)</div>
 				{/*Map dei tipi pokemon che vengono collegati da un "," */}
-				<div>Type: {pokemon.types.map(type => type.type.name).join(', ')} onClick={naviga}</div>
+				<div>Type: {pokemon.types.map(type => type.type.name).join(', ')}</div>
 			</div>
 
 			<div id="evoluzione">

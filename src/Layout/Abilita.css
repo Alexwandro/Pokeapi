@@ -2,6 +2,13 @@
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	height: 100%;
+	background-color: white;
 }
 
 .ability-header {
@@ -12,16 +19,21 @@
 }
 
 .back-button {
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
+	font-size: 40px;
 	background-color: #4CAF50;
 	color: white;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
 	cursor: pointer;
+	transition: background-color 0.3s ease;
+	flex-grow: 1; /*Espansione*/
+	flex-shrink: 1; /*Restringimento*/
+	min-width: 120px;
 }
 
 .back-button:hover {
-	background-color: #4CAF50;
+	background-color: #276429;
 }
 
 .ability-content {
