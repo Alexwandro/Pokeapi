@@ -3,6 +3,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Home from './Elenco.js';
 import Dettagli from './Dettagli.js';
 import Errore from './Errore.js';
+import Abilita from "./Abilita.js";
 export const parametri=createContext()
 
 
@@ -23,6 +24,7 @@ const App = () =>{
 					<Routes>
 						<Route element={<Home/>} path='/'/>
 						<Route element={<Dettagli/>} path='/Dettagli/:name'/>
+						<Route element={<Abilita/>} path='/abilita/:name'/>
 						<Route element={<Errore/>} path='*'/>
 					</Routes>
 				</BrowserRouter>

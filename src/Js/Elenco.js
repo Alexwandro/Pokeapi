@@ -1,4 +1,3 @@
-// Importazione delle dipendenze necessarie
 import React, { useContext, useState } from 'react'
 import { parametri } from './App.js'        // Importa il context per i dati Pokemon
 import { useNavigate } from 'react-router-dom'  // Hook per la navigazione
@@ -15,6 +14,7 @@ const Home = () => {
 	// Funzione che gestisce il cambiamento del testo nella barra di ricerca
 	// Converte il testo inserito in minuscolo per una ricerca case-insensitive
 	const handleSearch = (event) => {
+		//imposta i termini di ricerca in minuscolo
 		setSearchTerm(event.target.value.toLowerCase())
 	}
 
@@ -59,7 +59,7 @@ const Home = () => {
 			{/* Input per la ricerca dei Pokemon */}
 			<input
 				type="text"
-				placeholder="Cerca Pokemon..."
+				placeholder="Search Pokemon..."
 				value={searchTerm}
 				onChange={handleSearch}
 			/>

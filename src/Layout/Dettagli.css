@@ -1,6 +1,13 @@
 body {
 	margin: 0;
+	padding: 0;
 	font-family: 'Roboto', sans-serif;
+	background-image: url('https://preview.redd.it/6gbw6h6x5k911.jpg?auto=webp&s=32af89a80b9c98861f5d683f3cd7233c85053611');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	min-height: 100vh;
 }
 .loader {
 	position: fixed;
@@ -100,26 +107,26 @@ body {
 }
 
 .evolution-name {
-    color: #333; /* Colore del testo */
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer; /* Cambia il cursore a "mano" quando si passa sopra */
-    transition: color 0.2s ease; /* Effetto di transizione sul colore */
+	color: #333; /* Colore del testo */
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer; /* Cambia il cursore a "mano" quando si passa sopra */
+	transition: color 0.2s ease; /* Effetto di transizione sul colore */
 }
 
 .evolution-name:hover {
-    color: #007BFF; /* Cambia colore quando si passa sopra */
-    text-decoration: underline; /* Sottolinea il testo quando si passa sopra */
+	color: #007BFF; /* Cambia colore quando si passa sopra */
+	text-decoration: underline; /* Sottolinea il testo quando si passa sopra */
 }
 
 .current-pokemon {
-    color: #4CAF50; /* Colore speciale per il Pokémon corrente */
-    font-style: italic; /* Aggiunge uno stile speciale */
-    cursor: default; /* Non cliccabile (opzionale per il Pokémon corrente) */
+	color: #4CAF50; /* Colore speciale per il Pokémon corrente */
+	font-style: italic; /* Aggiunge uno stile speciale */
+	cursor: default; /* Non cliccabile (opzionale per il Pokémon corrente) */
 }
 .evolution-arrow {
-    margin: 0 5px; /* Spazio tra le frecce e i nomi */
-    color: #666; /* Colore della freccia */
+	margin: 0 5px; /* Spazio tra le frecce e i nomi */
+	color: #666; /* Colore della freccia */
 }
 
 input[type="button"] {
@@ -144,6 +151,15 @@ input[type="button"]:hover {
 input[type="button"]:active {
 	background-color: #003f7f; /* Colore più scuro al click */
 	transform: scale(0.95); /* Riduzione leggera al click */
+}
+
+.ability-name {
+	color: #0066cc;
+	text-decoration: underline;
+}
+
+.ability-name:hover {
+	color: #004499;
 }
 
 #info, #abilita, #statistiche, #evoluzione {

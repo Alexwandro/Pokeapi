@@ -6,7 +6,7 @@ const Dettagli = () => {
 	// Per utilizzare sweetalert2
 	const Swal = require('sweetalert2')
 	// Hook per la navigazione tra le pagine	
-	let indietro = useNavigate()
+	let naviga = useNavigate()
 	// Ottiene il nome del pokemon dall'URL
 	const { name } = useParams()
 	// State per i dati del pokemon
@@ -48,14 +48,14 @@ const Dettagli = () => {
 			})
 			.catch((error) => {
 				// Redirect alla pagina di errore in caso di problemi
-				indietro('/errore')
+				naviga('/errore')
 				console.error('Errore:', error);
-				indietro('/errore', { state: { message: error.message } });
+				naviga('/errore', { state: { message: error.message } });
 			})
 			.finally(() => {
 				setIsLoading(false)
 			})
-	}, [name, indietro])
+	}, [name, naviga])
 
 	//Fetch della linea evolutiva del pokemon
 	
@@ -73,47 +73,48 @@ const Dettagli = () => {
 		<div id='container'>
 			{/* Pulsanti per navigare tra i pokemon */}
 			<div id='pulsanti'>
-				<button onClick={() => {if (pokemon.id > 1) {indietro(`/Dettagli/${pokemon.id - 1}`);}
+				<button onClick={() => {if (pokemon.id > 1) {naviga(`/Dettagli/${pokemon.id - 1}`);}
 				else{
 					Swal.fire({
-						icon: "error",
+						icon: "Error",
 						title: "Oops...",
-						text: "Non ci sono Pokemon precedenti a questo!",
+						text: "This is the first pokemon!!!",
 						});
 				}
-				}}>Pokemon precedente</button>
-				<button onClick={() => indietro('/')}>Home</button>
-				<button onClick={() => indietro(`/Dettagli/${pokemon.id + 1}`)}>Pokemon successivo</button> 
+				}}>Previous Pokemon</button>
+				<button onClick={() => naviga('/')}>Home</button>
+				<button onClick={() => naviga(`/Dettagli/${pokemon.id + 1}`)}>Next Pokemon</button> 
 			</div>
 			<h1>{pokemon.name}</h1>
 
 			<div id='immagini'>
-				<div>Forma normale:</div>
+				<div>Normal:</div>
 				<img alt='immagine.pokemon' src={pokemon.sprites.front_default}></img>
-				<div>Forma shiny:</div>
+				<div>Shiny:</div>
 				<img alt='immagine.pokemon' src={pokemon.sprites.front_shiny}></img>
 			</div>
 
 			<div id='Verso'>
-				<input type='button' onClick={()=>Verso()} value={"Riproduci verso  🔊"}></input>
+				<input type='button' onClick={()=>Verso()} value={"Call of the pokemon🔊"}></input>
 			</div>
 
 			<div id='info'>
-				<h2>Informazioni:</h2>
-				<div>Altezza: {pokemon.height / 10} (m)</div>
-				<div>Peso: {pokemon.weight / 10} (kg)</div>
-				<div>Tipo: {pokemon.types.map(type => type.type.name).join(', ')}</div>
+				<h2>Info:</h2>
+				<div>Height: {pokemon.height / 10} (m)</div>
+				<div>Weight: {pokemon.weight / 10} (kg)</div>
+				{/*Map dei tipi pokemon che vengono collegati da un "," */}
+				<div>Type: {pokemon.types.map(type => type.type.name).join(', ')} onClick={naviga}</div>
 			</div>
 
 			<div id="evoluzione">
-				<h2>Linea Evolutiva:</h2>
+				<h2>Evolution Line:</h2>
 				<div className="evolution-chain">
 					{evolutionChain && evolutionChain.map((evoName, index) => (
 						<div key={evoName} className="evolution-item">
 							{/* Nome del Pokémon nell'evoluzione. Se è il Pokémon corrente, aggiunge una classe evidenziata */}
 							<span 
 								className={`evolution-name ${evoName === pokemon.name ? 'current-pokemon' : ''}`}
-								onClick={() => indietro(`/Dettagli/${evoName}`)} // Naviga ai dettagli del Pokémon selezionato
+								onClick={() => naviga(`/Dettagli/${evoName}`)} // Naviga ai dettagli del Pokémon selezionato
 							>
 								{evoName}
 							</span>
@@ -128,17 +129,20 @@ const Dettagli = () => {
 			</div>
 
 			<div id='abilita'>
-				<h2>Abilità:</h2>
+			<h2>Ability:</h2>
 				{pokemon.abilities.map((ability, index) => (
-					<div key={index}>
-						{ability.ability.name}
-						{ability.is_hidden && " (Abilità Nascosta)"}
+					<div key={index} style={{cursor: 'pointer'}} 
+						onClick={() => naviga(`/abilita/${ability.ability.name}`)}>
+						<span className="ability-name">
+							{ability.ability.name}
+							{ability.is_hidden && " (Hiden Ability)"}
+						</span>
 					</div>
 				))}
 			</div>
 			
 			<div id='statistiche'>
-				<h2>Statistiche:</h2>
+				<h2>Statistics:</h2>
 				{pokemon.stats.map((stat, index) => (
 					<div key={index}>
 						{stat.stat.name}: {stat.base_stat}
